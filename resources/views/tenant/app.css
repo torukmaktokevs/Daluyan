@@ -1,0 +1,182 @@
+:root{
+  --blue: #2563eb;
+  --blue-600: #1e40af;
+  --bg: #81ffd9;
+  --card: #55d0e0;
+  --text: #102a43;
+  --muted: #6b7280;
+  --accent: #2563eb;
+  --success: #16a34a;
+  --danger: #ef4444;
+}
+
+/* Basic reset */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  display:flex;
+}
+
+/* Sidebar */
+.sidebar{
+  width:250px;
+  background:linear-gradient(180deg,var(--blue),var(--blue-600));
+  color: #fff;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  padding:12px;
+  min-height:100vh;
+  gap:12px;
+}
+.brand{display:flex;align-items:center;justify-content:space-between;padding:6px}
+.brand-left{display:flex;gap:8px;align-items:center}
+.logo{font-size:20px}
+.title{font-weight:700}
+.icon-btn{background:transparent;border:0;color:#fff;font-size:16px;cursor:pointer}
+.nav{display:flex;flex-direction:column;padding:8px 4px;gap:4px}
+.nav-link{
+  display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.95);
+  text-decoration:none;padding:10px;border-radius:8px;font-weight:500;
+}
+.nav-link i{width:18px;text-align:center}
+.nav-link:hover{background:rgba(255,255,255,0.08)}
+.nav-link.active{background:rgba(255,255,255,0.12)}
+.sidebar-footer{display:flex;justify-content:space-between;align-items:center;padding:6px}
+
+/* Main content */
+.main{flex:1;display:flex;flex-direction:column;min-height:100vh}
+.topbar{
+  display:flex;justify-content:space-between;align-items:center;padding:12px 20px;background:#fff;border-bottom:1px solid #e6eef8;
+}
+.search{display:flex;gap:8px;align-items:center}
+.search input[type="search"]{padding:8px 10px;border:1px solid #e2e8f0;border-radius:8px;width:300px}
+.icon-btn{padding:8px;border-radius:8px}
+.top-actions{display:flex;align-items:center;gap:16px}
+.profile{display:flex;align-items:center;gap:10px;position:relative;cursor:pointer}
+.profile img{width:36px;height:36px;border-radius:50%;object-fit:cover}
+.profile-menu{position:absolute;top:48px;right:0;background:#fff;border-radius:8px;box-shadow:0 8px 20px rgba(12,24,48,0.12);display:none;list-style:none;padding:8px 0}
+.profile.active .profile-menu{display:block}
+.profile-menu li{padding:8px 12px}
+
+/* Page content */
+.page-content{padding:20px}
+.page-head h1{margin:0}
+.muted{color:var(--muted);font-size:13px;margin-top:6px}
+
+/* grid system */
+.grid{display:grid;gap:18px}
+.grid.stats{grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin-top:12px}
+.grid:not(.stats){grid-template-columns:repeat(2,1fr);margin-top:18px}
+
+/* Cards */
+.card{background:var(--card);padding:16px;border-radius:10px;box-shadow:0 6px 18px rgba(16,42,78,0.06)}
+.stat-card{display:flex;align-items:center;justify-content:space-between;padding:18px}
+.card h3{margin:0 0 8px 0}
+.card-row{display:flex;align-items:center;justify-content:space-between}
+.accent{color:var(--accent)}
+
+/* actions */
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+.btn{background:var(--accent);color:#fff;padding:10px 12px;border-radius:8px;border:0;cursor:pointer}
+.btn.ghost{background:transparent;border:1px solid rgba(37,99,235,0.12);color:var(--accent)}
+.btn.outline{background:transparent;border:1px solid #d1d5db;color:var(--text)}
+.small{padding:6px 8px;font-size:13px}
+
+/* lists / table like */
+.list{display:flex;flex-direction:column;gap:8px;max-height:60vh;overflow:auto}
+.item{display:flex;justify-content:space-between;align-items:center;padding:12px;border-radius:8px;border:1px solid #eef2ff}
+.item .meta{display:flex;gap:12px;align-items:center}
+.table{display:flex;flex-direction:column;gap:8px;max-height:60vh;overflow:auto}
+.row{display:flex;gap:12px;align-items:center;padding:10px;border-radius:8px;border:1px solid #f1f5f9}
+.row:hover{background:#f8fafc;cursor:pointer}
+
+/* thumbnails */
+.thumb-row{display:flex;gap:8px}
+.thumb{width:72px;height:56px;object-fit:cover;border-radius:6px;border:1px solid #e6eef8}
+.thumb.small{width:48px;height:36px}
+
+/* activity */
+.activity{list-style:none;padding:0;margin:0}
+.activity li{padding:6px 0;border-bottom:1px dashed #eef2ff}
+
+/* forms */
+.form-row{display:flex;gap:8px;align-items:center;margin-top:8px}
+.form-row input, .form-row select, .form-row textarea{padding:8px;border:1px solid #e2e8f0;border-radius:6px;width:100%}
+label{font-weight:600;font-size:13px;margin-bottom:6px;display:block}
+
+/* modal */
+.modal{position:fixed;inset:0;background:rgba(10,20,40,0.45);display:flex;align-items:center;justify-content:center;z-index:1200}
+.modal.hidden{display:none}
+.modal-body{background:#fff;padding:18px;border-radius:10px;width:min(900px,96%);max-height:90vh;overflow:auto}
+.modal-body h3{margin-top:0}
+.modal-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:8px}
+
+/* toast */
+.toast-wrap{position:fixed;right:20px;bottom:20px;z-index:1300;display:flex;flex-direction:column;gap:8px}
+.toast{background:#052c65;color:#fff;padding:10px 14px;border-radius:8px;box-shadow:0 6px 18px rgba(2,6,23,0.5)}
+
+/* map container adjustment for leaflet controls */
+.leaflet-container{border-radius:8px}
+
+/* responsive */
+@media (max-width:900px){
+  .sidebar{position:fixed;z-index:40;left:-260px;transition:left .25s}
+  .sidebar.open{left:0}
+  .main{margin-left:0}
+  .grid{grid-template-columns:1fr}
+  .search input{width:160px}
+}
+
+/* collapsed sidebar state (JS toggles 'collapsed' class) */
+.sidebar.collapsed{width:72px}
+.sidebar.collapsed .title{display:none}
+.sidebar.collapsed .nav-link span{display:none}
+.sidebar.collapsed .brand{justify-content:center}
+
+.nav-link.dropdown {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.submenu {
+  display: none;
+  flex-direction: column;
+  padding-left: 30px;
+  
+}
+
+.submenu a {
+  color: #fff;
+  padding: 8px 0;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.submenu a:hover {
+  color: #fff;
+}
+
+.submenu.show {
+  display: flex;
+}
+.btn.del {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn.del:hover {
+  background: #c0392b;
+}
